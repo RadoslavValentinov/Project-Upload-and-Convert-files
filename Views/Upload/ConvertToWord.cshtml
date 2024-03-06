@@ -1,0 +1,21 @@
+﻿@model ConvertFileModel
+
+<form asp-action="ConvertToWord" asp-controller="Upload" method="post"  enctype="multipart/form-data">
+
+
+    <div class="row mt-2">
+        <div class="col-12">
+            <label class="col-form-label">Select File</label>
+            <input id="data" asp-for="File" class="form-control" />
+            <span asp-validation-for="File" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="row mt-2">
+        <div class="col-12">
+            <button id="clicked" type="submit" onclick="SetValue" class="btn btn-success">Convert to Word</button>
+        </div>
+    </div>
+</form>
+

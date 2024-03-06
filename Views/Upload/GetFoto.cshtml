@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<style>
+
+    #btns {
+        padding: 5px 100px;
+        color:white;
+        background-color:forestgreen;
+        margin-left:20px;
+    }
+    #btns:hover{
+        background-color:lawngreen;
+    }
+
+    .sec {
+        margin:20px;
+    }
+    #file{
+        width:800px;
+        border:1px solid grey;
+    }
+
+    #resultText {
+        border:10px solid gray;
+        display:block;
+        width:500px;
+        height: 500px;
+        text-align:center;
+        margin-left: 400px;
+        padding:10px;
+    }
+
+    #dicription{
+        width:300px;
+        height:450px;
+        position:absolute;
+        top:250px;
+        font-family:Arial, Helvetica, sans-serif;
+        font-style:italic;
+        font-size:20px;
+    }
+
+    #down {
+        position:relative;
+        left: 580px;
+        top:10px;
+        padding: 5px 30px;
+        background-color: forestgreen;
+        color:white;
+    }
+    #down:hover{
+            background-color: lawngreen;
+    }
+
+</style>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+
+
+<body>
+    <div>
+        @using (Html.BeginForm("GetFoto", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="sec">
+                <input id="file" type="file" name="file" />
+                <br />
+            </div>
+            <div>
+                <button id="btns" type="submit">Upload </button>
+                <hr />
+            </div>
+
+            <span id="resultText">@Html.Raw(ViewBag.Message)</span>
+
+            <p id="dicription">Here you can extract the text from your photos or screenshots in png and jpg formats 
+                and save them in a text file that you can download.
+                If you wish, you can convert it to a
+                word file with the other file conversion options on our site. 
+                Your photos or screenshots are not saved by us, but are congested and deleted.
+                The result of the extracted text will be visualized in the frame, 
+                and the file can be downloaded from the button below it.
+            </p>
+
+            <button id="down" type="submit" asp-area="" asp-controller="Upload" asp-action="DownloadFileFoto">Download</button>
+        }
+    </div>
+</body>
+</html>
