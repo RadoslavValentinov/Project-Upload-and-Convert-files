@@ -1,1 +1,1 @@
-# Нова папка
+# The project enables converting word files and extracting text from a screenshot or photo and converting it to word format. As well as translating text and saving it in a document with an option for several formats.
