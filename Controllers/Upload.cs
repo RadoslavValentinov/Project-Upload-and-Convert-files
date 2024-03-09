@@ -17,6 +17,7 @@ namespace UploadFiles.Controllers
             return View(model);
         }
 
+
         [HttpPost]
         public IActionResult Uploads(SingleFileModel model)
         {
@@ -48,6 +49,26 @@ namespace UploadFiles.Controllers
         }
 
         [HttpGet]
+        public IActionResult ConvertToPdf()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult ConvertToPdf(ConvertFileModel model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+            }
+
+            return View();
+        }
+
+
+        [HttpGet]
         public IActionResult ConvertToWord()
         {
             ConvertFileModel model = new ConvertFileModel();
@@ -70,8 +91,6 @@ namespace UploadFiles.Controllers
             //get file extension
 
             FileInfo fileInfo = new FileInfo(model.File.FileName);
-            var sets = fileInfo.Name;
-            string fileName = model.FileName + fileInfo.Extension;
 
             string fileNameWithPath = Path.Combine(path, fileInfo.Name);
 
@@ -86,8 +105,6 @@ namespace UploadFiles.Controllers
             {
                 set.WordOptions.Format = SautinSoft.PdfFocus.CWordOptions.eWordDocument.Docx;
                 set.ToWord("C:\\Users\\Radko\\source\\repos\\UploadFiles\\UploadFiles\\wwwroot\\convert.dox");
-
-
             }
             var convertedFile = "convert.dox";
 
