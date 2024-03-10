@@ -3,7 +3,138 @@
 }
 
 <style>
-    body{
+    body {
         background-image: url('wallpaperflare.com_wallpaper.jpg');
     }
+
+    .containerCard {
+        display: flex;
+        gap: 20px;
+        margin-top: 0px;
+        justify-content: space-between;
+    }
+
+    .card {
+        margin-top: 40px;
+        border-radius: 6px;
+        overflow: hidden;
+        background-color: whitesmoke;
+        width: 348px;
+        height: 430px;
+    }
+
+        .card img {
+            height: 230px;
+        }
+
+        .card h4 {
+            font-style:italic;
+            width: 300px;
+            padding: 5px 20px;
+        }
+
+        .card a {
+            padding: 10px 50px;
+            position: relative;
+            bottom: -19.8px;
+        }
+
+        .card #seconds {
+            bottom: -19.8px;
+        }
+
+            .card #seconds:hover {
+                background-color: rgb(237 111 31);
+            }
+
+        .card a:hover {
+            background-color: rgb(116 157 61);
+        }
+
+    .card3 {
+        margin-top: 40px;
+        border-radius: 6px;
+        overflow: hidden;
+        background-color: whitesmoke;
+        width: 348px;
+        height: 430px;
+    }
+
+        .card3 img {
+            width: 347px;
+            height: 230px;
+        }
+
+        .card3 h4 {
+            width: 300px;
+            padding: 5px 20px;
+            font-style: italic;
+        }
+
+        .card3 #threeBtn {
+            width: 307px;
+            padding: 10px 50px;
+            position: relative;
+            bottom: -21px;
+            left: 1px;
+        }
+
+    #threeBtn:hover {
+        background-color: #5ee3ed;
+    }
+
+
+    #fourBtn {
+        padding: 10px 50px;
+        position: relative;
+        bottom: -19.8px;
+    }
+
+        #fourBtn:hover {
+            background-color: rgb(254 106 87);
+        }
+
 </style>
+
+
+
+<div class="containerCard">
+
+    <div class="card">
+        <img src="https://mydocsonline.com/wp-content/uploads/2019/10/upload-file_My7gK8Id_L.png" alt="UploadFile" />
+        <h4>
+            Here you can upload your files.
+            Possible formats (.txt, .pdf, .dox, .odr)
+        </h4>
+        <a class="btn btn-primary" asp-area="" asp-controller="Upload" asp-action="Index">Upload Files</a>
+    </div>
+
+    <div class="card">
+        <img src="https://www.vertopal.com/static/ui/image/converter/convert-txt-to-doc.webp" alt="ConverToWord" />
+        <h4>
+            Here you can convert your files to Word format.
+            (pdf > word, text > word)
+        </h4>
+        <a id="seconds" class="btn btn-primary" asp-area="" asp-controller="Upload" asp-action="ConvertToWord">Convert Files</a>
+    </div>
+
+    <div class="card3">
+        <img src="https://assets-global.website-files.com/61e7d259b7746e3f63f0b6be/648ae1747c5d3e12f92675e4_Tutorial%20_%20how%20to%20extract%20text%20from%20image%20(7).webp" alt="ExtractText" />
+        <h4>
+            Here you can extract text from a photo or screenshot and download it to a file.
+        </h4>
+
+        <a id="threeBtn" class="btn btn-primary" asp-area="" asp-controller="Upload" asp-action="GetFoto">Extract Text</a>
+    </div>
+
+    <div class="card">
+        <img src="https://www.ilovepdf.com/storage/blog/206-1678894051-How-to-convert-PDF%2C-Office%2C-%26-Images.png" alt="ConverToPdf" />
+
+        <h4>
+            Here you can format your text files(.doc, .txt, .odr format) in PDF format.
+        </h4>
+
+        <a id="fourBtn" class="btn btn-primary" asp-area="" asp-controller="Upload" asp-action="ConvertToPdf">Convert to Pdf</a>
+    </div>
+
+</div>
