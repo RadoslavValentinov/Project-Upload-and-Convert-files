@@ -1,3 +1,8 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using MyWebProject.Infrastructure.Data.Models;
+using UploadFiles.Infrastruction;
+
 namespace UploadFiles
 {
     public class Program
@@ -9,8 +14,25 @@ namespace UploadFiles
 
             var builder = WebApplication.CreateBuilder(args);
 
+            //var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            //builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            //{
+            //    DbContextOptionsBuilder dbContextOptionsBuilder = options.UseSqlServer(connectionString);
+            //});
+            //builder.Services.AddDbContext<ApplicationDbContext>();
+            //builder.Services.AddApplicationServiceApp();
+
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddIdentity<Users, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+            });
+  
 
             var app = builder.Build();
 
